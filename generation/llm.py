@@ -13,9 +13,11 @@ Just needs `ollama pull llama3` and `ollama serve` running in the background.
 
 import requests
 import json
+import os
 
-# Ollama runs a local HTTP server — this is the default endpoint
-OLLAMA_URL = "http://localhost:11434/api/generate"
+# Allow overriding the Ollama host via environment variable (needed for Docker)
+_ollama_host = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_URL = f"{_ollama_host}/api/generate"
 MODEL_NAME = "llama3"  # make sure you've done: ollama pull llama3
 
 
