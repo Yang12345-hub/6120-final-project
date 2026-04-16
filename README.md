@@ -70,19 +70,32 @@ Wait until you see:
 ancient-rag-ollama-init  | llama3 model ready
 ```
 
-### 5. Open the app
+### 5. Access the frontend
 
+Once `llama3 model ready` appears in the logs, open your browser:
+
+**Local machine:**
+```
+http://localhost:8501
+```
+
+**Remote server (GCE / HPC / bare metal):**
 ```
 http://<your-server-ip>:8501
 ```
 
-If you're on a cloud VM (e.g. GCE), make sure port 8501 is open in the firewall:
+To find your server's public IP:
+```bash
+curl -s ifconfig.me
+```
+
+If the page is not reachable, open port 8501 in the firewall first:
 
 ```bash
-# UFW
+# UFW (Ubuntu)
 sudo ufw allow 8501
 
-# GCP
+# GCP firewall rule
 gcloud compute firewall-rules create allow-streamlit \
   --allow tcp:8501 --target-tags=http-server
 ```
