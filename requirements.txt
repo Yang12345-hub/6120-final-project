@@ -1,0 +1,21 @@
+# RAG system dependencies
+
+# frontend
+streamlit
+
+# retrieval — BM25
+langchain
+langchain-community
+rank_bm25
+
+# retrieval — dense embeddings + vector store
+sentence-transformers
+faiss-cpu
+torch
+torchvision
+
+# generation — talking to Ollama
+requests
+
+# general
+numpy
